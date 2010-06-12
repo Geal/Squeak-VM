@@ -329,28 +329,6 @@ char *GetImageOption(int id)
     return NULL;
 }
 
-typedef struct _OSVERSIONINFOEX {
-  DWORD dwOSVersionInfoSize;
-  DWORD dwMajorVersion;
-  DWORD dwMinorVersion;
-  DWORD dwBuildNumber;
-  DWORD dwPlatformId;
-  TCHAR szCSDVersion[128];
-  WORD wServicePackMajor;
-  WORD wServicePackMinor;
-  WORD wSuiteMask;
-  BYTE wProductType;
-  BYTE wReserved;
-} OSVERSIONINFOEX;
-
-typedef struct _DISPLAY_DEVICE {
-  DWORD cb;
-  TCHAR DeviceName[32];
-  TCHAR DeviceString[128];
-  DWORD StateFlags;
-  TCHAR DeviceID[128];
-  TCHAR DeviceKey[128];
-} DISPLAY_DEVICE, *PDISPLAY_DEVICE;
 
 typedef BOOL (CALLBACK *pfnEnumDisplayDevices)(
   LPCTSTR lpDevice,                // device name
