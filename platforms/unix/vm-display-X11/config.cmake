@@ -1,4 +1,4 @@
-SET (${plugin}_sources ${unix}/${plugin}/sqUnixX11.c ${unix}/${plugin}/sqUnixMozilla.c)
+SET (${plugin}_sources ${platdir}/${plugin}/sqUnixX11.c ${platdir}/${plugin}/sqUnixMozilla.c)
 
 IF (NOT X11_FOUND)
   PLUGIN_DISABLE ()
