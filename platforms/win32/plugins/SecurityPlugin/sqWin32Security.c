@@ -37,13 +37,14 @@ extern BOOL fLowRights;  /* started as low integrity process,
 /* file security */
 static int allowFileAccess = 1;  /* full access to files */
 static const TCHAR U_DOT[] = TEXT(".");
-static const TCHAR U_BACKSLASH[] = TEXT("\\");
+/* HACK: U_BACKSLASH is already defnied in sqPlatformSpecific.h*/
+static const TCHAR U_BACKSLASH2[] = TEXT("\\");
 
 static int testDotDot(TCHAR *pathName, int index) {
   while(pathName[index]) {
     if(pathName[index] == U_DOT[0]) {
       if(pathName[index-1] == U_DOT[0]) {
-	if (pathName[index-2] == U_BACKSLASH[0]) {
+	if (pathName[index-2] == U_BACKSLASH2[0]) {
 	  return 0; /* Gotcha! */
 	}
       }
