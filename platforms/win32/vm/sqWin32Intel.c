@@ -266,7 +266,7 @@ void SetSystemTrayIcon(BOOL on)
   if(!hShell) hShell = LoadLibrary(TEXT("shell32.dll"));
   if(!hShell) return; /* should not happen */
   /* On WinNT 3.* the following will just return NULL */
-  (FARPROC)ShellNotifyIcon = GetProcAddress(hShell, "Shell_NotifyIconA");
+  ShellNotifyIcon = GetProcAddress(hShell, "Shell_NotifyIconA");
   if(!ShellNotifyIcon) return;  /* ok, we don't have it */
   nid.cbSize = sizeof(nid);
   nid.hWnd   = stWindow;
@@ -298,7 +298,7 @@ void SetupService95()
       printLastError(TEXT("Unable to load kernel32.dll"));
       return;
     }
-  (FARPROC) RegisterServiceProcess = GetProcAddress(hKernel32, "RegisterServiceProcess");
+  RegisterServiceProcess = GetProcAddress(hKernel32, "RegisterServiceProcess");
   if(!RegisterServiceProcess)
     {
       printLastError(TEXT("Unable to find RegisterServiceProcess"));
