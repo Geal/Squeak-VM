@@ -58,6 +58,7 @@ size_t sqImageFileWrite(void *ptr, size_t sz, size_t count, sqImageFile h);
 extern int _lowResMSecs;
 #define ioLowResMSecs() _lowResMSecs
 
-#else error "Not Win32!"
+#else
+#error "Not Win32!"
 #endif /* WIN32 */
 
