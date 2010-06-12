@@ -128,7 +128,8 @@ echo "-- Using generator ${generator}"
 cmake_args="${unix} -DVM_HOST=${host} -DPLATFORM_SOURCE_VERSION=${PLATFORM_SOURCE_VERSION} -DVM_VERSION=${VM_VERSION}"
 
 if test -n "${cflags}"; then
-	cmake_args="${cmake_args} -DOPT--CMAKE_C_FLAGS=\"${cflags}\""
+#	cmake_args="${cmake_args} -DOPT--CFLAGS=\"${cflags}\""
+	cmake_args="${cmake_args} -DCMAKE_C_FLAGS=${cflags}"
 fi
 
 
