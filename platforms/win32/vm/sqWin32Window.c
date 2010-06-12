@@ -1707,8 +1707,8 @@ int ioSetFullScreen(int fullScreen)
 #else /* LSB_FIRST */
 # if defined(__GNUC__) && defined(_X86_)
    /* GCC generates *optimal* code with a little help */
-#  define BYTE_SWAP(w) __asm__("bswap %%eax" : "=eax" (w) : "eax" (w))
-#  define WORD_SWAP(w) __asm__("roll $16, %%eax" : "=eax" (w) : "eax" (w))
+#  define BYTE_SWAP(w) __asm__("bswap %%eax" : "=a" (w) : "a" (w))
+#  define WORD_SWAP(w) __asm__("roll $16, %%eax" : "=a" (w) : "a" (w))
 #  define SRC_PIX_REG asm("%esi")
 #  define DST_PIX_REG asm("%edi")
 # else /* Not GCC?! Well, it's your own fault */
